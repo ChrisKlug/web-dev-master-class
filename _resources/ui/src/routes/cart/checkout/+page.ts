@@ -14,7 +14,7 @@ export const load: PageLoad = async ({ parent }) => {
 	const pre: CheckoutFormSchema = {
 		items: data.cart.map<CheckoutFormItem>((cart) => ({
 			itemId: cart.productId,
-			quantity: cart.quantity
+			quantity: cart.count
 		})),
 		deliveryAddress: {
 			name: data.user.name,

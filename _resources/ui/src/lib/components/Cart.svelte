@@ -7,8 +7,8 @@
 	import Separator from './ui/separator/separator.svelte';
 
 	let { cart }: { cart: ShoppingCartItem[] } = $props();
-	let cartSum = $derived(cart.reduce((acc, item) => acc + item.price * item.quantity, 0));
-	let contentLength = $derived(cart.reduce((acc, item) => acc + item.quantity, 0));
+	let cartSum = $derived(cart.reduce((acc, item) => acc + item.price * item.count, 0));
+	let contentLength = $derived(cart.reduce((acc, item) => acc + item.count, 0));
 </script>
 
 {#if cart && cart.length > 0}
@@ -28,7 +28,7 @@
 				<div class="grid grid-cols-[1fr_auto] gap-2">
 					{#each cart as item (item.productId)}
 						<span class="ml-4">{item.productName}</span>
-						<p class="text-right">{item.quantity} x {item.price} SEK</p>
+						<p class="text-right">{item.count} x {item.price} SEK</p>
 					{/each}
 					<Separator class="col-span-2" />
 					<p class="font-bold">Total:</p>

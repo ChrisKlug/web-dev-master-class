@@ -8,7 +8,7 @@ export type ShoppingCartItem = {
 	productId: number;
 	productName: string;
 	price: number;
-	quantity: number;
+	count: number;
 };
 
 const address = z.object({

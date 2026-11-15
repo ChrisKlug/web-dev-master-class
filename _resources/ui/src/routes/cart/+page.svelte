@@ -34,7 +34,7 @@
 			<div class="flex w-full max-w-2xl items-center justify-between">
 				<p class="text-lg font-bold">Total:</p>
 				<p class="text-lg font-bold">
-					{data.cart.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2)} SEK
+					{data.cart.reduce((acc, item) => acc + item.price * item.count, 0).toFixed(2)} SEK
 				</p>
 			</div>
 			<button
