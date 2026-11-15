@@ -12,14 +12,13 @@
 	import { toast } from 'svelte-sonner';
 	import { superForm, type SuperValidated } from 'sveltekit-superforms';
 	import { zodClient } from 'sveltekit-superforms/adapters';
-	import { goto, invalidate } from '$app/navigation';
 
 	interface CheckoutFormProps {
 		data: SuperValidated<CheckoutFormSchema>;
 		cart: ShoppingCartItem[];
 	}
 	let { data, cart }: CheckoutFormProps = $props();
-	let cartSum = $derived(cart.reduce((acc, item) => acc + item.price * item.quantity, 0));
+	let cartSum = $derived(cart.reduce((acc, item) => acc + item.price * item.count, 0));
 
 	const form = superForm(data, {
 		SPA: true,
@@ -33,8 +32,6 @@
 				try {
 					await addOrder(fetch, form.data);
 					toast.success('Order placed successfully, thank you!');
-					await invalidate('app:cart');
-					goto('/');
 				} catch (error: unknown) {
 					if (isHttpError(error)) {
 						if (error.status === 401) {
@@ -177,7 +174,7 @@
 				{#if cart && cart.length > 0}
 					{#each cart as item (item.productId)}
 						<span class="ml-4">{item.productName}</span>
-						<p class="text-right">{item.quantity} x {item.price} SEK</p>
+						<p class="text-right">{item.count} x {item.price} SEK</p>
 					{/each}
 					<Separator class="col-span-2" />
 					<p class="font-bold">Total:</p>

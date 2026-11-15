@@ -6,7 +6,7 @@ export async function addToCart(client: typeof fetch, productId: number, count?:
 		headers: {
 			'Content-Type': 'application/json'
 		},
-		body: JSON.stringify({ productId, quantity: count ?? 1 })
+		body: JSON.stringify({ productId, count: count ?? 1 })
 	});
 
 	if (response.ok) {
