@@ -1,0 +1,26 @@
+<Project Sdk="Aspire.AppHost.Sdk/13.6.5">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net11.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AspireUseCliBundle>true</AspireUseCliBundle>
+        <UserSecretsId>e543554e-dcf7-4584-a35e-730f98c5bee3</UserSecretsId>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\WebDevMasterClass.Services.Orders\WebDevMasterClass.Services.Orders.csproj"
+                        AspireProjectMetadataTypeName="Orders"/>
+      <ProjectReference Include="..\WebDevMasterClass.Services.Products\WebDevMasterClass.Services.Products.csproj"
+                        AspireProjectMetadataTypeName="Products"/>
+      <ProjectReference Include="..\WebDevMasterClass.Web\WebDevMasterClass.Web.csproj"
+                        AspireProjectMetadataTypeName="Web" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Aspire.Hosting.SqlServer" Version="13.6.5" />
+      <PackageReference Include="Microsoft.SqlServer.Server" Version="1.0.0" />
+    </ItemGroup>
+
+</Project>
