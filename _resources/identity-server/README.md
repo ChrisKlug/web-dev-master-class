@@ -4,8 +4,10 @@ This Identity Server configuration has been cloned from https://github.com/Duend
 
 ## Building image
 
-To build the Docker image, just run
+To build the Docker image, just run the following from this directory
 
 ```
-docker build -t identity-server .
+docker build -t zerokoll/webdevworkshop-identity-server .
 ```
+
+The image name needs to match the one used in the AppHost ([AppHost.cs](../../src/WebDevMasterClass.AppHost/AppHost.cs)).
